@@ -1,8 +1,8 @@
-from tqdm import tqdm
-import numpy as np
-import torch
 import collections
 import random
+
+import numpy as np
+import torch
 
 class ReplayBuffer:
     def __init__(self, capacity):

@@ -1,10 +1,8 @@
-import torch
-import torch.nn.functional as F
 import sys
 
 import numpy as np
-target_path='./'
-sys.path.append(target_path)
+import torch
+import torch.nn.functional as F
 
 from Models import rl_utils
 

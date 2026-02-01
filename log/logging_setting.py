@@ -1,6 +1,7 @@
 import logging
 import configparser
 import logging.config
+from io import StringIO
 
 def getLogging(confName = "applog"):
     config_path = ".//log//logging.conf"

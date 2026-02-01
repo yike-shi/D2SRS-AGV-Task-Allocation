@@ -1,9 +1,8 @@
+import random
+
+import numpy as np
 import torch
 import torch.nn.functional as F
-import numpy as np
-import matplotlib.pyplot as plt
-import random
-# import rl_utils
 
 
 def onehot_from_logits(logits, eps=0.01):

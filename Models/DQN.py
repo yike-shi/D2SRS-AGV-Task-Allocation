@@ -1,14 +1,13 @@
+# Standard library imports
+import random
+from collections import deque
+
+# Third-party library imports
+import numpy as np
 from matplotlib import pyplot as plt
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import torch.autograd as autograd
-
-import numpy as np
-import gym
-import random
-from collections import deque
-from tqdm import tqdm
 
 
 class BasicBuffer:

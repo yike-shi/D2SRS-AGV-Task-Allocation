@@ -1,11 +1,9 @@
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
 import sys
 
 import numpy as np
-target_path='./'
-sys.path.append(target_path)
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
 
 class Phi(nn.Module):
     def __init__(self, input_dim, output_dim, hidden_dim=64):

@@ -1,12 +1,9 @@
-from copy import deepcopy
 import random
 import sys
 
 from gym import Space
 import numpy as np
 import torch
-target_path='./'
-sys.path.append(target_path)
 
 from log.logging_setting import getLogging
 from Entity.entity_file import *

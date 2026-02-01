@@ -1,9 +1,6 @@
-# import math
 import sys
 
 import numpy as np
-target_path='./'
-sys.path.append(target_path)
 
 from log.logging_setting import getLogging
 

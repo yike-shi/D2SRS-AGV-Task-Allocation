@@ -1,11 +1,9 @@
 import sys
-target_path='./'
-sys.path.append(target_path)
 
 import numpy as np
 import matplotlib.pyplot as plt
-import gym
 import torch
+
 from Models.PPO import PPO
 
 device = torch.device('cuda') if torch.cuda.is_available() \
