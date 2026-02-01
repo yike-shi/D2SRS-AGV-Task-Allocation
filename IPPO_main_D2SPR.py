@@ -66,7 +66,7 @@ def calculate_change_rate(queue):
 
 if __name__ == '__main__':
     
-    print(f'当前订单生成模式：自动随机生成')
+    logger.info(f'当前订单生成模式：自动随机生成')
     order_nums = int(input('输入自动生成订单数量: ')) + 1
     actor_lr = 3e-4
     critic_lr = 1e-3
@@ -195,7 +195,7 @@ if __name__ == '__main__':
                     break
 
 
-            print(f'生成方案时间：{cost_time:.4f}s')
+            logger.info(f'生成方案时间：{cost_time:.4f}s')
             
             order_json = {}
             order_json["orders"] = []
@@ -225,7 +225,7 @@ if __name__ == '__main__':
             # 将字典保存为 JSON 文件
             with open('order.json', 'w') as json_file:
                 json.dump(order_json, json_file, indent=4)
-            print("JSON 文件已保存")
+            logger.info("JSON 文件已保存")
             #  保存每个回合的return
             agv_return_list.append(agv_episode_return)
             select_return_list.append(select_episode_return)
@@ -256,11 +256,11 @@ if __name__ == '__main__':
 
             if (select_change_rate < convergence_threshold and agv_change_rate < convergence_threshold) or episode == 251:
                 env.sparse_mode = True  # 启用稀疏奖励
-                print("========切换到稀疏奖励模式========")
+                logger.info("========切换到稀疏奖励模式========")
 
             # 保存网络
             if (episode+1) % 50 == 0:
-                print("process data")
+                logger.info("process data")
                 # 构建路径
                 select_actor_path = os.path.join('.', 'Net', 'select_agent_net', 'Actor', f'episode{episode + 1}.pth')
                 select_critic_path = os.path.join('.', 'Net', 'select_agent_net', 'Critic', f'episode{episode + 1}.pth')
@@ -281,7 +281,7 @@ if __name__ == '__main__':
                     output_dir = os.path.join('.', 'results')
                     os.makedirs(output_dir, exist_ok=True)
                     write_lists_to_csv(lists, names, os.path.join(output_dir, 'data_d.csv'))
-                    print(f"data.csv 已保存到 {output_dir}")
+                    logger.info(f"data.csv 已保存到 {output_dir}")
                 else:
                     save_fig('select_return_list_s', select_return_list)
                     save_fig('agv_return_list1_s', agv_return_list)
@@ -293,6 +293,6 @@ if __name__ == '__main__':
                     output_dir = os.path.join('.', 'results')
                     os.makedirs(output_dir, exist_ok=True)
                     write_lists_to_csv(lists, names, os.path.join(output_dir, 'data.csv'))
-                    print(f"data.csv 已保存到 {output_dir}")
+                    logger.info(f"data.csv 已保存到 {output_dir}")
 
    
